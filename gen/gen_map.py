@@ -306,7 +306,7 @@ def generateMap(inp,filepath,n_vnfs ): #genera la mappa in formato .dzn prendend
         idLon = getAtrId(root.findall('.//n:key',ns),'longitude')
 
         if (idLat == "non trovato" or idLon == "non trovato" ):
-                print("Non è possibile recuperare la latitudine e la longitudine nel file")
+                print("Non e' possibile recuperare la latitudine e la longitudine nel file")
                 sys.exit(1)
 
 

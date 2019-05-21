@@ -16,7 +16,7 @@ def reqToArc(req,dupList):
 			s = (p+1)
 	return translated
 
-def boolToStr(inp):#aggiungo 0 all'inizio e alla fine perche' perche' si devono considerare gli ENDPOINT  sui quali non so è assunto niente
+def boolToStr(inp):#aggiungo 0 all'inizio e alla fine perche' perche' si devono considerare gli ENDPOINT  sui quali non so e' assunto niente
 
     out = [int(i ==True ) for i in inp]
     st = "[0,"

@@ -223,17 +223,18 @@ def run_dc(test_nodes,test_domains,test_maps,rep,solver,dc_range):
 						timeoutcmd = ""
 						# print socket.gethostname()
 						# sys.exit()
-						if "nt" not in os.name:
-								timeoutcmd = "timeout 6 "
+						# if "nt" not in os.name:
+						# 		timeoutcmd = "timeout 6 "
 
 						
-						cmd_compile =timeoutcmd + "mzn2fzn -c  --time-limit 12000 "+dirpath+os.sep+"model"+os.sep+"model.mzn "+testMap+" "+testIst+" -o "+fznfile
+						# cmd_compile =timeoutcmd + "mzn2fzn -c  --time-limit 12000 "+dirpath+os.sep+"model"+os.sep+"model.mzn "+testMap+" "+testIst+" -o "+fznfile
+						cmd_compile = "mzn2fzn -c  --time-limit 12000 "+dirpath+os.sep+"model"+os.sep+"model.mzn "+testMap+" "+testIst+" -o "+fznfile
 						
 						print (cmd_compile)
 
 						compileinfo = os.popen(cmd_compile).read()
 
-						
+						# sys.exit()
 						
 						isSuccess = True
 						if compileinfo != "":
@@ -256,7 +257,9 @@ def run_dc(test_nodes,test_domains,test_maps,rep,solver,dc_range):
 
 						if isSuccess:
 							if "nt" in os.name:
-								cmd = "."+os.sep+"fzn-chuffed.exe -t 12000 "+fznfile
+								# cmd = "."+os.sep+"fzn-chuffed.exe -t 12000 "+fznfile
+
+								cmd = '/Users/tongliu/workplace/netprog/fzn_chuffed.dms -t 12000 '+fznfile
 							elif solver == "ortools":
 								cmd = "timeout 5 "+dirpath+os.sep+"or-tools_v6.7"+os.sep+"bin"+os.sep+"fzn-or-tools "+fznfile
 							elif solver == "gecode":
@@ -267,8 +270,12 @@ def run_dc(test_nodes,test_domains,test_maps,rep,solver,dc_range):
 								cmd = "timeout 5 java -jar "+dirpath+os.sep+"jacop"+os.sep+"jacop-4.5.0-SNAPSHOT.jar "+fznfile
 							
 							else:
-								cmd = "timeout 5 "+dirpath+os.sep+"fzn_chuffed "+fznfile
-							
+								# cmd = "timeout 5 "+dirpath+os.sep+"fzn_chuffed "+fznfile
+								cmd = '/Users/tongliu/workplace/netprog/fzn_chuffed.dms '+fznfile
+
+
+							print (cmd)
+
 							rlt = os.popen(cmd).read() # This will run the command and return any output
 							
 

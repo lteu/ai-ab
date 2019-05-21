@@ -13,7 +13,7 @@ def getNumbDom(inp):
         idLon = getAtrId(root.findall('.//n:key',ns),'longitude')
 
         if (idLat == "non trovato" or idLon == "non trovato" ):
-                print("Non è possibile recuperare la latitudine e la longitudine nel file")
+                print("Non e' possibile recuperare la latitudine e la longitudine nel file")
                 sys.exit(1)
 
         listOfNodes = root.findall('.//n:graph/n:node[@id]',ns)
